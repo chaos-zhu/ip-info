@@ -1,0 +1,17 @@
+{
+  "name": "ip-search",
+  "version": "1.0.0",
+  "description": "ip-search",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon ./main.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "geoip-lite": "^1.4.2",
+    "request-ip": "^2.1.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
