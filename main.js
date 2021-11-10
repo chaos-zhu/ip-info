@@ -19,7 +19,7 @@ app.get('/', async (req, res) => {
 })
 
 
-const port = 59999
+const port = 80
 app.listen(port, () => {
   console.log(`Server(http) is running: http://127.0.0.1:${ port }`)
 })
