@@ -3,11 +3,19 @@ const app = express()
 const requestIp = require('request-ip')
 const { getIpDetail } = require('./tool')
 
-app.get('/', function(req, res) {
-  let ip = requestIp.getClientIp(req)
-  console.log(ip)
-  const { country, timezone } = getIpDetail('58.61.51.35')
-  res.send(`${ip}, ${country}, ${timezone}`)
+app.get('/', async (req, res) => {
+  let clientIp = requestIp.getClientIp(req)
+  console.log('客户端原始ip：', clientIp)
+  const { country, province, city, isp, ip } = await getIpDetail(clientIp)
+  res.send(`
+    <ul>
+      <li>IP：${ip}</li>
+      <li>国家：${country}</li>
+      <li>省份：${province}</li>
+      <li>城市：${city}</li>
+      <li>供应商：${isp}</li>
+    </ul>`
+  )
 })
 
 
